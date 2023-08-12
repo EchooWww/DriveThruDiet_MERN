@@ -4,20 +4,16 @@ const Joi = require("joi");
 const passwordComplexity = require("joi-password-complexity");
 
 const userSchema = new mongoose.Schema({
-  firstName: { type: String, required: true },
-  lastName: { type: String, required: true },
+  firstName: { type: String, required: true, minlength: 2, maxlength: 20 },
+  lastName: { type: String, required: true, minlength: 2, maxlength: 20 },
   email: { type: String, required: true, unique: true },
   password: { type: String, required: true },
-  habits: [
-    {
-      name: String,
-      count: Number,
-      continuous_count: Number,
-      last_checked: Date,
-      checked: Boolean,
-      checked_dates: [Date],
-    },
-  ],
+  birthday: {
+    type: Date,
+    required: true,
+    min: "1900-01-01",
+    max: "2010-01-01",
+  },
 });
 
 userSchema.methods.generateAuthToken = function () {
@@ -35,6 +31,7 @@ const validate = (data) => {
     lastName: Joi.string().min(3).max(20).required().label("Last Name"),
     email: Joi.string().min(6).max(50).required().email().label("Email"),
     password: passwordComplexity().required().label("Password"),
+    birthday: Joi.date().required().label("Birthday"),
   });
   return schema.validate(data);
 };

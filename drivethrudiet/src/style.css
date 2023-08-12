@@ -1,0 +1,183 @@
+:root {
+  --accent: #ff385c;
+  --accent-light: #ff7f96;
+  --accent-lighter: #ffabba;
+  --accent-hover: #FFB3C2;
+  --dark: #524e50;
+  --med-grey: #666564;
+  --medium: #d4c9c2;
+  --light: #DAD8D9;
+  --highlight: #E7E3E3;
+  --calories: #c7c7ff;
+  --calories-text: rgba(149, 149, 255, 1);
+  --carbs: #ffd8be;
+  --carbs-text: rgba(252, 161, 71, 1);
+  --protein: #a9ecbf;
+  --protein-text: rgba(66, 193, 110, 1);
+  --fat: #f3bbe1;
+  --fat-text: rgba(220, 91, 183, 1);
+  --btnradius: 50px;
+  --radius: 10px;
+  --card: #f7f7f7;
+}
+
+body {
+  margin: 0;
+  overflow: hidden;
+  text-align: center;
+  display: block;
+  height: 100vh;
+  font-family: 'Roboto', sans-serif;
+  color: var(--dark);
+}
+
+.page-container {
+  position: fixed;
+  top: 60px;
+  width: 100vw;
+  height: calc(100% - 130px);
+  overflow-y: scroll;
+}
+
+/* Hide the scrollbar */
+::-webkit-scrollbar {
+  width: 0.01em;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: #888;
+  border-radius: 0.25em;
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  background: #555;
+}
+
+button {
+  border: none;
+  cursor: pointer;
+}
+
+#compare-btn,
+.submit-btn,
+.swal2-styled.swal2-confirm {
+  color: white;
+  border: 2px solid var(--accent) !important;
+  background-color: var(--accent) !important;
+  border-radius: var(--btnradius) !important;
+}
+
+#filter-submit-btn:hover,
+#compare-btn:hover,
+.add-btn:hover,
+.remove-btn:hover,
+.submit-btn:hover,
+.swal2-styled.swal2-confirm:hover {
+  border: 2px solid var(--medium) !important;
+  background-color: var(--medium) !important;
+}
+
+#filter-submit-btn:active,
+#compare-btn:active,
+.add-btn:active,
+.remove-btn:active,
+.submit-btn:active,
+.swal2-styled.swal2-confirm:active {
+  border: 2px solid var(--dark) !important;
+  background-color: var(--dark) !important;
+}
+
+.save-btn,
+.swal2-styled.swal2-cancel {
+  border-radius: var(--btnradius) !important;
+  border: 2px solid var(--accent) !important;
+  background-color: white !important;
+  color: var(--accent) !important;
+}
+
+#filter-reset-btn:hover,
+#add-compare-btn:hover,
+.access-btn:hover,
+.save-btn:hover,
+.swal2-styled.swal2-cancel:hover {
+  border: 2px solid var(--medium) !important;
+  background-color: var(--medium) !important;
+  color: white !important;
+}
+
+#filter-reset-btn:active,
+#add-compare-btn:active,
+.access-btn:active,
+.save-btn:active,
+.swal2-styled.swal2-cancel:active {
+  border: 2px solid var(--dark) !important;
+  background-color: var(--dark) !important;
+  color: white !important;
+}
+
+body {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.auth-form-container,
+.form {
+  display: flex;
+  flex-direction: column;
+}
+
+.auth-form-container {
+  padding: 3em;
+  min-width: 250px;
+  width: 20vw;
+  max-width: 400px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.submit-btn {
+  padding: 1em;
+  margin: 0.5em auto 0.5em auto;
+  width: 65%
+}
+
+.link-btn {
+  color: var(--dark);
+  background: none;
+  text-decoration: underline;
+}
+
+.link-btn:hover {
+  text-decoration: none;
+}
+
+.link-btn:active {
+  color: var(--highlight)
+}
+
+.questionIndex {
+  padding: 1em;
+  border: none;
+  border-radius: var(--btnradius);
+  width: 100%;
+}
+
+.is-invalid.hide {
+  display: none;
+  visibility: hidden;
+}
+
+.error-message {
+  font-size: 0.8em;
+  margin-bottom: 0.5em;
+  color: red;
+  font-weight: bold;
+}
