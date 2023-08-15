@@ -14,6 +14,15 @@ const userSchema = new mongoose.Schema({
     min: "1900-01-01",
     max: "2010-01-01",
   },
+  age: { type: Number },
+  height: { type: Number },
+  weight: { type: Number },
+  activity: { type: String },
+  goal: { type: String },
+  calorieGoal: { type: Number },
+  proteinGoal: { type: Number },
+  carbGoal: { type: Number },
+  fatGoal: { type: Number },
 });
 
 userSchema.methods.generateAuthToken = function () {

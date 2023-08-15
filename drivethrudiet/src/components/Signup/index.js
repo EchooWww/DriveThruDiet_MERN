@@ -20,11 +20,11 @@ export default function Signup() {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      const url = "http://localhost:7070/api/users";
-      const response = await axios.post(url, data);
+      const url = "http://localhost:7070/api/users/";
+      const response = await axios.post(url, data, { withCredentials: true });
       navigate("/signup_profile");
     } catch (error) {
-      if ((error.response && error.response.status === 400) || 409) {
+      if (error.response && error.response.status === 400) {
         setError(error.response.data.message);
       }
     }
@@ -35,8 +35,9 @@ export default function Signup() {
       <h5>All fields are required</h5>
       {error && <div className="error-message">❗️{error}</div>}
       <form className="form" id="signupForm" onSubmit={handleSubmit}>
-        <label>
+        <label className="signup_label">
           <input
+            className="signup_input"
             type="text"
             placeholder="First Name"
             id="firstNameInput"
@@ -46,8 +47,9 @@ export default function Signup() {
           />
         </label>
 
-        <label>
+        <label className="signup_label">
           <input
+            className="signup_input"
             type="text"
             placeholder="Last Name"
             id="lastNameInput"
@@ -57,8 +59,9 @@ export default function Signup() {
           />
         </label>
 
-        <label>
+        <label className="signup_label">
           <input
+            className="signup_input"
             type="email"
             placeholder="Email"
             id="emailInput"
@@ -68,8 +71,9 @@ export default function Signup() {
           />
         </label>
 
-        <label>
+        <label className="signup_label">
           <input
+            className="signup_input"
             type="date"
             placeholder=""
             id="birthdayInput"
@@ -79,8 +83,9 @@ export default function Signup() {
           />
         </label>
 
-        <label>
+        <label className="signup_label">
           <input
+            className="signup_input"
             type="password"
             placeholder="Password"
             id="passwordInput"

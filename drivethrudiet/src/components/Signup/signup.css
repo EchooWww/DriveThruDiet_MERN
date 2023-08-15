@@ -1,8 +1,4 @@
-body {
-  background-color: white;
-}
-
-label {
+.signup_label {
   text-align: left;
   margin-bottom: 0.5em;
   border-radius: var(--btnradius);
@@ -11,7 +7,7 @@ label {
   flex-direction: column;
 }
 
-input {
+.signup_input {
   padding: 1em;
   border: none;
   border-radius: var(--btnradius);

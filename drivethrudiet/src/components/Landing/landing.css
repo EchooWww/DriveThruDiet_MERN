@@ -1,5 +1,4 @@
 body {
-  background-color: var(--accent);
   display: flex;
   align-items: center;
   justify-content: center;
@@ -12,6 +11,15 @@ body {
   align-items: center;
   width: 80vw;
   max-width: 400px;
+}
+
+.landing-container {
+  background-color: var(--accent);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100vw;
+  height: 100vh;
 }
 
 .image-container {
