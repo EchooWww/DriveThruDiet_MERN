@@ -1,3 +1,4 @@
+/* Global styles */
 :root {
   --accent: #ff385c;
   --accent-light: #ff7f96;
@@ -180,4 +181,424 @@ body {
   margin-bottom: 0.5em;
   color: red;
   font-weight: bold;
+}
+
+/* Landing page */
+
+body {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100vw;
+}
+
+.container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 80vw;
+  max-width: 400px;
+}
+
+.landing-container {
+  background-color: var(--accent);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100vw;
+  height: 100vh;
+}
+
+.image-container {
+  width: 100%;
+}
+
+#logo {
+  width: 100%;
+}
+
+.access-btn {
+  width: 100%;
+  border: 2px solid white;
+  background-color: white;
+  padding: 1em;
+  border-radius: var(--btnradius);
+  cursor: pointer;
+  margin-top: 0.5em;
+  margin-bottom: 0.5em;
+}
+
+.access-btn:hover {
+  background-color: var(--medium);
+}
+
+.access-btn:active {
+  background-color: var(--dark);
+}
+
+/* Login page */
+
+.input-box {
+  text-align: left;
+  border-radius: var(--btnradius);
+  background-color: white;
+  border: 1px solid var(--accent);
+  margin-bottom: 0.5em;
+  display: flex;
+}
+
+#emailInput,
+#passwordInput {
+  border-radius: var(--btnradius);
+  padding: 1em;
+  border: none;
+  width: 75%;
+}
+
+/* 
+.forgot-btn {
+  font-size: 13px;
+  width: 25%;
+  padding: 1em;
+  text-align: right;
+  text-decoration: underline;
+}
+
+.forgot-btn:hover {
+  text-decoration: none;
+}
+
+.forgot-btn:active {
+  color: var(--highlight)
+} */
+
+/* .is-invalid {
+  border-color: red;
+  box-shadow: 0 0 0 0.1rem red;
+} */
+
+.is-invalid.hide {
+  display: none;
+  visibility: hidden;
+}
+
+.error-message {
+  font-size: 0.8em;
+  margin-bottom: 0.5em;
+}
+
+/* Signup page */
+.signup_label {
+  text-align: left;
+  margin-bottom: 0.5em;
+  border-radius: var(--btnradius);
+  border: 1px solid var(--accent);
+  display: flex;
+  flex-direction: column;
+}
+
+.signup_input {
+  padding: 1em;
+  border: none;
+  border-radius: var(--btnradius);
+  height: auto;
+}
+
+h2 {
+  margin: 0.5em;
+}
+
+h5 {
+  margin-top: 0.5em;
+}
+
+/* Signup profile */
+.profile_input {
+  text-align: left;
+  margin-bottom: 0.5em;
+  padding: 1em;
+  border-radius: var(--btnradius);
+  border: 1px solid var(--accent);
+  display: flex;
+  flex-direction: column;
+}
+
+.select_label {
+  margin-bottom: 0.5em;
+  border: 1px solid var(--accent);
+  border-radius: var(--btnradius);
+}
+
+/* Onboarding page */
+.page-container {
+  overflow-y: scroll;
+  color: var(--dark);
+}
+
+#backbutton {
+  color: var(--accent);
+  margin-left: 25px;
+}
+
+#backbutton:hover {
+  color: var(--medium);
+}
+
+#backbutton:active {
+  color: var(--dark);
+}
+
+.logout-btn {
+  border: none;
+  background-color: transparent;
+  padding: 1em;
+  border-radius: 10px;
+  margin-bottom: 0.5em;
+}
+
+.logout-btn:hover {
+  color: var(--accent);
+}
+
+/* CSS for Nutritional goal grid */
+.profile-card {
+  width: 254px;
+  height: 190px;
+  color: white;
+  display: inline-grid;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: 1fr 1fr;
+  gap: 5px;
+  overflow: visible;
+}
+
+.profile-card .item {
+  border-radius: 10px;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.item:hover {
+  transform: scale(0.95);
+  transition: all 0.3s;
+}
+
+.item svg {
+  width: 40px;
+  height: 40px;
+  margin-bottom: 7px;
+}
+
+.item--1 {
+  background: var(--calories);
+}
+
+.item--2 {
+  background: var(--carbs);
+}
+
+.item--3 {
+  background: var(--protein);
+}
+
+.item--4 {
+  background: var(--fat);
+}
+
+.quantity {
+  font-size: 25px;
+  font-weight: 600;
+}
+
+.text {
+  font-size: 12px;
+  font-family: inherit;
+  font-weight: 600;
+}
+
+.text--1 {
+  color: var(--calories-text);
+}
+
+.text--2 {
+  color: var(--carbs-text);
+}
+
+.text--3 {
+  color: var(--protein-text);
+}
+
+.text--4 {
+  color: var(--fat-text);
+}
+
+/* Home page*/
+/*The progress ring mainly based on https://dev.to/vaibhavkhulbe/let-s-make-and-wear-those-css-3-progress-rings-2ngf*/
+
+/* Progress ring start */
+
+.rings {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+}
+
+.percent1, .percent2, .percent3, .percent4, svg, circle {
+  width: 80px;
+  height: 80px;
+}
+
+circle {
+  position: absolute;
+  fill: none;
+  stroke-width: 5;
+  stroke-dasharray: 220;
+  stroke-linecap: round;
+}
+
+circle:nth-child(1) {
+  stroke-dashoffset: 0;
+  stroke: #d4c9c2;
+}
+
+.percent1 circle:nth-child(2) {
+  stroke-dashoffset: calc(220 - (220 * 75) / 100);
+  stroke: #c7c7ff;
+  animation: percent 1.5s linear;
+  animation-delay: 1s;
+}
+
+
+.percent1 h2 {
+  color: #9595ff;
+}
+
+.percent2 circle:nth-child(2) {
+  stroke-dashoffset: calc(220 - (220 * 75) / 100);
+  stroke: #ffd8be;
+  animation: percent 1.8s linear;
+  animation-delay: 1.2s;
+}
+
+.percent2 h2 {
+  color: #fca147;
+}
+
+
+.percent3 circle:nth-child(2) {
+  stroke-dashoffset: calc(220 - (220 * 75) / 100);
+  stroke: #a9ecbf;
+  animation: percent 1.8s linear;
+  animation-delay: 1.2s;
+}
+
+.percent3 h2 {
+  color: #42c16e;
+}
+
+.percent4 circle:nth-child(2) {
+  stroke-dashoffset: calc(220 - (220 * 75) / 100);
+  stroke: #f3bbe1;
+  animation: percent 1.8s linear;
+  animation-delay: 1.2s;
+}
+
+
+.percent4 h2 {
+  color: #dc5bb6;
+}
+
+
+.number {
+  position: relative;
+  bottom: 73px;
+  right: 3px;
+}
+
+.number h2 {
+  font-size: 16px;
+}
+
+span {
+  font-size: 15px;
+  opacity: .7;
+}
+
+
+
+@keyframes percent {
+  0% {
+    stroke-dashoffset: 0;
+    stroke-width: 0;
+  }
+}
+
+/* Progress ring end */
+
+
+ul {
+  list-style: none;
+}
+
+#nearby {
+  display: inline-block;
+  margin-top: 300px;
+  align-items: center;
+  justify-content: center;
+}
+
+
+.number, #division1, #division2, #division3, #division4 {
+  font-size: small;
+}
+
+.list-table {
+  width: 100%;
+  table-layout: fixed;
+  display: contents;
+}
+
+
+.list-table td {
+  text-align: left;
+  padding: 5px;
+}
+
+
+
+.map {
+  height: 0;
+}
+
+.greeting>h2 {
+  color: #616161;
+  margin-top: 60px;
+}
+
+.goals>h2, #nearby>h2 {
+  text-align: center;
+  color: var(--accent);
+  margin-top: 50px;
+}
+
+#map {
+  height: 400px;
+  width: 100%;
+}
+
+.material-symbols-outlined {
+  font-variation-settings:
+    'FILL'0,
+    'wght'400,
+    'GRAD'0,
+    'opsz'48
+}
+
+.goals {
+  margin-right: 10px;
+  margin-left: 10px;
 }

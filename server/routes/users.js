@@ -26,7 +26,6 @@ router.post("/", async (req, res) => {
     }).save();
     req.session.email = req.body.email;
     res.status(201).send({ message: "User created successfully" });
-    console.log(req.session);
   } catch (error) {
     res.status(400).send({ message: error.message });
   }
@@ -34,10 +33,8 @@ router.post("/", async (req, res) => {
 
 router.post("/signup_profile", async (req, res) => {
   try {
-    console.log(req.session.email);
     if (req.session.email) {
       const userEmail = req.session.email;
-
       // Find the user by email
       const user = await User.findOne({ email: userEmail });
 
@@ -65,10 +62,28 @@ router.post("/signup_profile", async (req, res) => {
 
         // Save the changes to the user document
         await user.save();
-
         res
           .status(201)
           .send({ message: "User profile and goals created successfully" });
+      } else {
+        res.status(404).send({ message: "User not found" });
+      }
+    } else {
+      res.status(401).send({ message: "Unauthorized" });
+    }
+  } catch (error) {
+    console.log(error);
+    res.status(500).send({ message: "Internal Server Error" });
+  }
+});
+
+router.get("/onboarding", async (req, res) => {
+  try {
+    if (req.session.email) {
+      const userEmail = req.session.email;
+      const user = await User.findOne({ email: userEmail });
+      if (user) {
+        res.status(200).send(user);
       } else {
         res.status(404).send({ message: "User not found" });
       }

@@ -3,9 +3,6 @@ const calculateGoals = (data) => {
   const weight = +data.weight;
   const height = +data.height;
   const age = +data.age;
-  console.log("weight:", weight);
-  console.log("height:", height);
-  console.log("age:", age);
   if (data.sex === "female") {
     BMR = 447.593 + 9.247 * weight + 3.098 * height - 4.33 * age;
   } else {
@@ -58,11 +55,6 @@ const calculateGoals = (data) => {
   const carbGoal = Math.round((calorieGoal * carbPct) / 4);
   const proteinGoal = Math.round((calorieGoal * proteinPct) / 4);
   const fatGoal = Math.round((calorieGoal * fatPct) / 9);
-
-  console.log("calorieGoal:", calorieGoal);
-  console.log("carbGoal:", carbGoal);
-  console.log("proteinGoal:", proteinGoal);
-  console.log("fatGoal:", fatGoal);
 
   return { calorieGoal, carbGoal, proteinGoal, fatGoal };
 };

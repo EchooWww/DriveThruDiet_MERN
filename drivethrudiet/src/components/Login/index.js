@@ -1,6 +1,5 @@
-import "./login.css";
 import { useState } from "react";
-import { Link } from "react-router-dom";
+import { useNavigate, Link } from "react-router-dom";
 import axios from "axios";
 
 function Login() {
@@ -9,6 +8,7 @@ function Login() {
     password: "",
   });
   const [error, setError] = useState("");
+  const Navigate = useNavigate();
 
   const handleChange = ({ target }) => {
     setData({ ...data, [target.name]: target.value });
@@ -19,9 +19,11 @@ function Login() {
     try {
       console.log("Logging in");
       const url = "http://localhost:7070/api/auth";
-      const { data: res } = await axios.post(url, data);
+      const { data: res } = await axios.post(url, data, {
+        withCredentials: true,
+      });
       localStorage.setItem("token", res.data);
-      window.location = "/main";
+      Navigate("/home");
       console.log(res.message);
     } catch (error) {
       if (error.response && error.response.status === 400) {

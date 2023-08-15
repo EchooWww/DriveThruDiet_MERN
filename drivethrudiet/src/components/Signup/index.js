@@ -1,7 +1,6 @@
 import { Link, useNavigate } from "react-router-dom";
 import { useState } from "react";
 import axios from "axios";
-import "./signup.css";
 export default function Signup() {
   const [data, setData] = useState({
     firstName: "",

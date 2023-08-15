@@ -5,10 +5,17 @@ const cors = require("cors");
 const connection = require("./utils/db"); // Import the Mongoose connection instance
 const userRoutes = require("./routes/users.js");
 const authRoutes = require("./routes/auth.js");
-const cookieSession = require("cookie-session");
+const session = require("express-session");
+const MongoStore = require("connect-mongo");
 
 // Database connection
 connection();
+
+// Session store
+const mongoStore = MongoStore.create({
+  mongoUrl: process.env.DB,
+  collectionName: "sessions",
+});
 
 // Middlewares
 const corsOptions = {
@@ -21,10 +28,14 @@ app.use(express.json());
 // Database connection
 
 app.use(
-  cookieSession({
-    name: "session",
-    keys: [process.env.SESSION_SECRET],
-    maxAge: 24 * 60 * 60 * 1000, // 24 hours
+  session({
+    secret: process.env.SESSION_SECRET,
+    store: mongoStore,
+    saveUninitialized: false,
+    resave: true,
+    cookie: {
+      maxAge: 1000 * 60 * 60 * 24, // Equals 1 day
+    },
   })
 );
 

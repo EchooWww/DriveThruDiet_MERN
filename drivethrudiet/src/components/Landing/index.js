@@ -1,6 +1,5 @@
 import { Link } from "react-router-dom";
 import Logo from "../../img/Logo-white.png";
-import "./landing.css";
 export default function LandingPage() {
   return (
     <div className="landing-container">
