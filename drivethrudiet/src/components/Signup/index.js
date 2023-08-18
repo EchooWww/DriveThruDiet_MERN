@@ -19,8 +19,8 @@ export default function Signup() {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      const url = "http://localhost:7070/api/users/";
-      const response = await axios.post(url, data, { withCredentials: true });
+      const url = "http://localhost:7070/api/users";
+      const response = await axios.post(url, data);
       navigate("/signup_profile");
     } catch (error) {
       if (error.response && error.response.status === 400) {
